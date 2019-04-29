@@ -21,7 +21,6 @@ export default class HelloWorldSceneAR extends Component {
   constructor() {
     super();
 
-    // Set initial state here
     this.state = {
       artistName: 'none',
       title: 'none',
@@ -31,7 +30,6 @@ export default class HelloWorldSceneAR extends Component {
     };
     this.renderInfo = this.renderInfo.bind(this);
     this.getARScene = this.getARScene.bind(this);
-    // bind 'this' to functions
   }
 
   renderInfo() {
@@ -48,14 +46,14 @@ export default class HelloWorldSceneAR extends Component {
           <ViroFlexView
             materials={'quad'}
             rotation={[-90, 0, 0]}
-            height={0.17}
+            height={0.12}
             width={0.12}
           >
             <ViroFlexView style={styles.cardWrapper}>
               <ViroText
                 textClipMode="None"
                 text={this.state.title}
-                scale={[0.035, 0.035, 0.035]}
+                scale={[0.03, 0.03, 0.03]}
                 style={styles.textStyle}
               />
 
@@ -81,13 +79,65 @@ export default class HelloWorldSceneAR extends Component {
     return (
       <ViroNode>
         <ViroARImageMarker
-          target={'Cypresses'}
+          target={'olive'}
           onAnchorFound={() =>
             this.setState({
               runAnimation: true,
               artistName: 'VanGogh',
-              title: 'Cypresses',
+              title: 'The Olve Trees',
               year: '1889',
+            })
+          }
+        >
+          {this.renderInfo()}
+        </ViroARImageMarker>
+        <ViroARImageMarker
+          target={'piano'}
+          onAnchorFound={() =>
+            this.setState({
+              runAnimation: true,
+              artistName: 'Henry Matisse',
+              title: 'The Piano',
+              year: '1916',
+            })
+          }
+        >
+          {this.renderInfo()}
+        </ViroARImageMarker>
+        <ViroARImageMarker
+          target={'monkey'}
+          onAnchorFound={() =>
+            this.setState({
+              runAnimation: true,
+              artistName: 'Frida Kahlo',
+              title: 'Self-portrait with Monkey',
+              year: '1938',
+            })
+          }
+        >
+          {this.renderInfo()}
+        </ViroARImageMarker>
+        <ViroARImageMarker
+          target={'oxbow'}
+          onAnchorFound={() =>
+            this.setState({
+              runAnimation: true,
+              artistName: 'Thomas Cole',
+              title: 'The Oxbow',
+              year: '1836',
+            })
+          }
+        >
+          {this.renderInfo()}
+        </ViroARImageMarker>
+        <ViroARImageMarker
+          target={'wolf'}
+          onAnchorFound={() =>
+            this.setState({
+              runAnimation: true,
+              artistName: 'Jackson Pollack',
+              title: 'The She-Wolf',
+              year: '1943',
             })
           }
         >
@@ -101,8 +151,36 @@ export default class HelloWorldSceneAR extends Component {
   }
 }
 ViroARTrackingTargets.createTargets({
-  Cypresses: {
-    source: require('./res/Cypresses.jpg'),
+  olive: {
+    source: require('./res/olive.jpg'),
+    orientation: 'Up',
+    physicalWidth: 0.08, // real world width in meters
+  },
+});
+ViroARTrackingTargets.createTargets({
+  piano: {
+    source: require('./res/piano.jpg'),
+    orientation: 'Up',
+    physicalWidth: 0.08, // real world width in meters
+  },
+});
+ViroARTrackingTargets.createTargets({
+  oxbow: {
+    source: require('./res/oxbow.jpg'),
+    orientation: 'Up',
+    physicalWidth: 0.08, // real world width in meters
+  },
+});
+ViroARTrackingTargets.createTargets({
+  wolf: {
+    source: require('./res/wolf.jpg'),
+    orientation: 'Up',
+    physicalWidth: 0.08, // real world width in meters
+  },
+});
+ViroARTrackingTargets.createTargets({
+  monkey: {
+    source: require('./res/monkey.jpg'),
     orientation: 'Up',
     physicalWidth: 0.08, // real world width in meters
   },
@@ -112,36 +190,32 @@ ViroMaterials.createMaterials({
     diffuseColor: 'rgba(255,255,255,1)',
   },
   quad: {
-    diffuseColor: 'rgba(0,0,0,0.5)',
+    diffuseColor: 'rgba(56, 106, 217, 0.5)',
   },
 });
 
 ViroAnimations.registerAnimations({
   animateImage: {
     properties: {
-      positionX: 0.2,
+      positionX: 0.1,
       opacity: 1.0,
     },
   },
 });
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   textStyle: {
-    flex: 0.5,
     fontFamily: 'Roboto',
-    fontSize: 50,
+    fontSize: 35,
     color: 'white',
     textAlignVertical: 'top',
     textAlign: 'left',
     fontWeight: 'bold',
   },
-  card: {
-    flexDirection: 'column',
-  },
+
   cardWrapper: {
-    flexDirection: 'column',
     alignItems: 'flex-start',
     padding: 0.001,
-    flex: 0.5,
+    flex: 1,
   },
   subText: {
     flexDirection: 'column',

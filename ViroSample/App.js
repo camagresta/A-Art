@@ -19,22 +19,16 @@ import {
 
 import { ViroARSceneNavigator } from 'react-viro';
 
-/*
- TODO: Insert your API key below
- */
-var sharedProps = {
+const sharedProps = {
   apiKey: '0317FC70-FA96-49FD-A78D-94C59D999325',
 };
 
-// Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/HelloWorldSceneAR');
+const InitialARScene = require('./js/HelloWorldSceneAR');
 
-var UNSET = 'UNSET';
-var AR_NAVIGATOR_TYPE = 'AR';
+const UNSET = 'UNSET';
+const AR_NAVIGATOR_TYPE = 'AR';
 
-// This determines which type of experience to launch in, or UNSET, if the user should
-// be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = UNSET;
+const defaultNavigatorType = UNSET;
 
 export default class ViroSample extends Component {
   constructor() {
@@ -68,16 +62,14 @@ export default class ViroSample extends Component {
     return (
       <View style={localStyles.outer}>
         <View style={localStyles.inner}>
-          <Text style={localStyles.titleText}>
-            Choose your desired experience:
-          </Text>
+          <Text style={localStyles.titleText}>Welcome to A-ART</Text>
 
           <TouchableHighlight
             style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'}
           >
-            <Text style={localStyles.buttonText}>AR</Text>
+            <Text style={localStyles.buttonText}>View Art</Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -114,7 +106,7 @@ export default class ViroSample extends Component {
   }
 }
 
-var localStyles = StyleSheet.create({
+const localStyles = StyleSheet.create({
   viroContainer: {
     flex: 1,
     backgroundColor: 'black',
@@ -123,7 +115,7 @@ var localStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'rgb(25, 55, 121)',
   },
   inner: {
     flex: 1,
@@ -136,7 +128,8 @@ var localStyles = StyleSheet.create({
     paddingBottom: 20,
     color: '#fff',
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: 30,
+    fontWeight: bold,
   },
   buttonText: {
     color: '#fff',
@@ -150,7 +143,7 @@ var localStyles = StyleSheet.create({
     paddingBottom: 20,
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: '#68a0cf',
+    backgroundColor: 'rgb(96, 176, 241)',
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
