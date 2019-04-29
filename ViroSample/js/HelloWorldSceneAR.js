@@ -84,8 +84,16 @@ export default class HelloWorldSceneAR extends Component {
             this.setState({
               runAnimation: true,
               artistName: 'VanGogh',
-              title: 'The Olve Trees',
+              title: 'The Olive Trees',
               year: '1889',
+            })
+          }
+          onAnchorRemoved={() =>
+            this.setState({
+              runAnimation: false,
+              artistName: '',
+              title: '',
+              year: '',
             })
           }
         >
@@ -101,6 +109,14 @@ export default class HelloWorldSceneAR extends Component {
               year: '1916',
             })
           }
+          onAnchorRemoved={() =>
+            this.setState({
+              runAnimation: false,
+              artistName: '',
+              title: '',
+              year: '',
+            })
+          }
         >
           {this.renderInfo()}
         </ViroARImageMarker>
@@ -112,6 +128,14 @@ export default class HelloWorldSceneAR extends Component {
               artistName: 'Frida Kahlo',
               title: 'Self-portrait with Monkey',
               year: '1938',
+            })
+          }
+          onAnchorRemoved={() =>
+            this.setState({
+              runAnimation: false,
+              artistName: '',
+              title: '',
+              year: '',
             })
           }
         >
@@ -127,6 +151,14 @@ export default class HelloWorldSceneAR extends Component {
               year: '1836',
             })
           }
+          onAnchorRemoved={() =>
+            this.setState({
+              runAnimation: false,
+              artistName: '',
+              title: '',
+              year: '',
+            })
+          }
         >
           {this.renderInfo()}
         </ViroARImageMarker>
@@ -138,6 +170,14 @@ export default class HelloWorldSceneAR extends Component {
               artistName: 'Jackson Pollack',
               title: 'The She-Wolf',
               year: '1943',
+            })
+          }
+          onAnchorRemoved={() =>
+            this.setState({
+              runAnimation: false,
+              artistName: '',
+              title: '',
+              year: '',
             })
           }
         >

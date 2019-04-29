@@ -80,6 +80,7 @@ export default class ViroSample extends Component {
   _getARNavigator() {
     return (
       <ViroARSceneNavigator
+        numberOfTrackedImages={1}
         {...this.state.sharedProps}
         initialScene={{ scene: InitialARScene }}
       />
@@ -121,7 +122,7 @@ const localStyles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'rgb(25, 55, 121)',
   },
   titleText: {
     paddingTop: 30,
@@ -129,7 +130,7 @@ const localStyles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 30,
-    fontWeight: bold,
+    fontWeight: 'bold',
   },
   buttonText: {
     color: '#fff',
